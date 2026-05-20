@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('activity_logs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id') ->nullable()->references('id')->on('users')->nullOnDelete();
+            $table->foreignId('action_id') ->nullable()->references('id')->on('actions')->nullOnDelete();
+            $table->string('entity_type');
+             $table->unsignedBigInteger('entity_id');
+           $table->string('related_type')->nullable();
+            $table->unsignedBigInteger('related_id')->nullable();
             $table->timestamps();
         });
     }
