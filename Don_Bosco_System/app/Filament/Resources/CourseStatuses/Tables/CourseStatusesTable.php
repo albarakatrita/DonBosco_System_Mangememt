@@ -1,28 +1,42 @@
 <?php
 
-namespace App\Filament\Resources\Donors\Tables;
+namespace App\Filament\Resources\CourseStatuses\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class DonorsTable
+class CourseStatusesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('status_name')
                     ->searchable(),
-                TextColumn::make('email')
-                    ->label('Email address')
-                    ->searchable(),
-                TextColumn::make('phone')
-                    ->searchable(),
-                ImageColumn::make('donor_logo'),
+TextColumn::make('color')
+    ->label('Color')
+    ->formatStateUsing(fn (string $state) => "
+        <div style='
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            height:100%;
+        '>
+            <div style='
+                width:18px;
+                height:18px;
+                border-radius:50%;
+                background:$state;
+                border:1px solid #ccc;
+            '></div>
+        </div>
+    ")
+    ->html()
+    ->alignCenter(),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -46,6 +46,11 @@ class AdminPanelProvider extends PanelProvider
             //     AccountWidget::class,
             //     FilamentInfoWidget::class,
             // ])
+
+->pages([
+    \App\Filament\Pages\Dashboard::class,
+])
+
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

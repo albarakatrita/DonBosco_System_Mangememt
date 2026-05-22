@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('course_registeration_fields', function (Blueprint $table) {
             $table->id();
+            $table->string('label');
             $table->string('name');
           $table->enum('type', [
     'text',
@@ -26,9 +27,11 @@ return new class extends Migration
     'email',
     'phone'
 ]);
- $table->boolean('required')->default(true);
- $table->integer('order');
- $table->json('options');
+ $table->boolean('required')->default(false);
+$table->integer('order_index');
+
+$table->unique(['form_id', 'order_index']);
+ $table->json('options')->nullable();
  $table->string('placeholder');
  //$table->boolean('is_active');
  $table->foreignId('form_id')->references('id')->on('forms')->cascadeOnDelete();

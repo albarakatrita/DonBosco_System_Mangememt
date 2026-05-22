@@ -24,7 +24,7 @@ class Course extends Model
     public function donor(){
         return $this->belongsTo(Donor::class);
     }
-    public function courseStauts(){
+    public function courseStatus(){
         return $this->belongsTo(CourseStatus::class);
     }
   public function form(){

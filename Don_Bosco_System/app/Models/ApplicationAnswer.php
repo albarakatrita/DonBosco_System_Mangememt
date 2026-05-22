@@ -15,5 +15,5 @@ class ApplicationAnswer extends Model
         return $this->belongsTo(StudentApplication::class);
     }
     public function courseRegisterationFields(){
-        return $this->belongsTo(CourseRegisterationField::class);
+       return $this->belongsTo(CourseRegisterationField::class, 'field_id');
 }}

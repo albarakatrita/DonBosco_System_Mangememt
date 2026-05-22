@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('interview_date');
             $table->time('interview_time');
 $table->enum('status', [
-    'scheduled',   // مقابلة مجدولة
-    'cancelled',   // مقابلة ملغاة
+    'scheduled',
+    'cancelled',
     'completed'])->default('scheduled');
     $table->text('notes');
     $table->string('rating');

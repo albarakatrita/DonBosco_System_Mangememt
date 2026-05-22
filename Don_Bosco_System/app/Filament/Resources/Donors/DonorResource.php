@@ -13,12 +13,15 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class DonorResource extends Resource
 {
     protected static ?string $model = Donor::class;
 
-protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-user-group';
+
+protected static string | UnitEnum | null $navigationGroup = 'Users & Donors';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-user-group';
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
